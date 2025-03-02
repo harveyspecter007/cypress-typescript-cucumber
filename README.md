@@ -5,6 +5,9 @@ Project Overview:
 
 This project is a Cypress automation framework using TypeScript and Cucumber for Behavior-Driven Development (BDD). It includes support for generating detailed HTML reports with multiple-cucumber-html-reporter.
 
+**PreRequisites:**
+--> install Node latest version
+
 **Installation & Setup**
 
 1️⃣ **Clone the Repository**
