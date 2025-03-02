@@ -1,0 +1,9 @@
+node_modules/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress/cache/
+cypress/results/
+cypress/cucumber-json/
+package-lock.json # or yarn.lock or pnpm-lock.yaml
+.env # if you have environment variables.
