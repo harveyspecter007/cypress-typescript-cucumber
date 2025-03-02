@@ -23,11 +23,11 @@ Running Tests:
 
 Run Cypress in Interactive Mode
 
-npm run cypress:open
+  npm run cypress:open
 
 Run Cypress in Headless Mode
 
-npm run cypress:run
+  npm run cypress:run
 
 Generating HTML Reports:
 -----------------------
@@ -36,18 +36,17 @@ Generating HTML Reports:
 
 Ensure test execution generates JSON reports.
 
-npm run cypress:run
+  npm run cypress:run
 
 2️) Generate HTML Report
 
-npm run generate-report
+   npm run generate-report
 
 3) Run Tests in parallel (Feature File wise)
 
-node run-parallel.js
+   node run-parallel.js
 
 4) Run Tests based on Cucumber Tags
 
-npx cypress run --env tags="@Test"
+   npx cypress run --env tags="@Test"
 
-This will generate a detailed HTML report inside cypress/reports/.
