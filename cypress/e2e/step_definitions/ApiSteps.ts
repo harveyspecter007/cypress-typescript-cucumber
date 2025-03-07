@@ -7,12 +7,8 @@ Given('I have the API Endpoint {string}', (endpoint: string) => {
 });
 
 When('I send a POST Request with valid Payload', () => {
-    const validPayload = {
-        name: 'Example Resource',
-        description: 'This is a valid resource.',
-    };
-
-    cy.request({
+   
+ cy.request({
         method: 'POST',
         url: apiEndpoint,
         body: {
@@ -29,12 +25,8 @@ Then('API Should respond with success code', () => {
 });
 
 When('I send a PUT Request with valid Payload', () => {
-    const validPayload = {
-        name: 'Example Resource',
-        description: 'This is a valid resource.',
-    };
-
-    cy.request({
+  
+  cy.request({
         method: 'PUT',
         url: apiEndpoint,
         body: {
