@@ -52,7 +52,7 @@ Ensure test execution generates JSON reports.
 
   Sample Report:
 
-  cypress/SampleReport.png
+  ![alt text](cypress/SampleReport.png)
 
 3) Run Tests in parallel (Feature File wise)
 
