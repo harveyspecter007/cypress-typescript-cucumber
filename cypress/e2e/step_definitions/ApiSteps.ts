@@ -2,6 +2,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 let apiEndpoint: string;
 let apiResponse: Cypress.Response<any>;
+
 Given('I have the API Endpoint {string}', (endpoint: string) => {
     apiEndpoint = endpoint;
 });
