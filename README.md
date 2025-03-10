@@ -50,6 +50,10 @@ Ensure test execution generates JSON reports.
 
   The Report will be Generated in cypress/Reports Folder.
 
+  Sample Report:
+
+  cypress/SampleReport.png
+
 3) Run Tests in parallel (Feature File wise)
 
   **node run-parallel.js**
