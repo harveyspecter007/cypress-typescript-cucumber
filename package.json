@@ -16,10 +16,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@types/cypress": "^1.1.6",
     "cypress": "^14.1.0",
-    "cypress-parallel": "^0.14.0",
-    "esbuild": "^0.25.0",
     "multiple-cucumber-html-reporter": "^3.9.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "cypress-cucumber-preprocessor": {

@@ -1,37 +1,33 @@
 const report = require("multiple-cucumber-html-reporter");
 const fs = require("fs");
 
-const jsonReportPath = "cypress/cucumber-json/cucumber-report.json";
+const jsonReportDir = "cypress/cucumber-json";
+const mergedJsonReportDir = "cypress/final-json";
 
-// Ensure JSON report file exists before generating the report
-if (!fs.existsSync(jsonReportPath)) {
-  console.error("JSON report not found. Run Cypress tests first.");
+// Ensure directory exists
+if (!fs.existsSync(jsonReportDir)) {
+  console.error(`JSON report directory '${jsonReportDir}' not found. Run Cypress tests first.`);
   process.exit(1);
 }
 
-// Read and validate JSON
-let jsonData;
-try {
-  jsonData = JSON.parse(fs.readFileSync(jsonReportPath, "utf-8"));
+// Merge JSON files into one report
+const mergedReportPath = `${mergedJsonReportDir}/merged-report.json`;
+const jsonFiles = fs.readdirSync(jsonReportDir).filter(file => file.endsWith(".json"));
 
-  // Ensure JSON is an array and has valid features
-  if (!Array.isArray(jsonData) || jsonData.length === 0) {
-    throw new Error("Invalid JSON format: Expected an array of features.");
-  }
+ if (!fs.existsSync(mergedJsonReportDir)) {
+            fs.mkdirSync(mergedJsonReportDir, { recursive: true });
+          }
 
-  // Add default `uri` if missing
-  jsonData = jsonData.map((feature) => ({
-    ...feature,
-    uri: feature.uri || "unknown.feature",
-  }));
-} catch (error) {
-  console.error("Error parsing JSON report:", error.message);
-  process.exit(1);
-}
+const mergedData = jsonFiles.flatMap(file => {
+  const content = fs.readFileSync(`${jsonReportDir}/${file}`, "utf-8");
+  return JSON.parse(content);
+});
+
+fs.writeFileSync(mergedReportPath, JSON.stringify(mergedData, null, 2));
 
 // Generate the HTML report
 report.generate({
-  jsonDir: "cypress/cucumber-json/",
+  jsonDir: mergedJsonReportDir,
   reportPath: "cypress/reports/html",
   metadata: {
     browser: {
@@ -41,8 +37,12 @@ report.generate({
     device: "Cypress",
     platform: {
       name: "Mac",
-      version: "15.3.1",
+      version: "15",
     },
+  },
+  screenshots: {
+    enable: true,
+    locations: "cypress/screenshots",
   },
 });
 

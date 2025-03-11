@@ -7,3 +7,4 @@ cypress/results/
 cypress/cucumber-json/
 package-lock.json 
 cypress/reports/
+package-lock.json
